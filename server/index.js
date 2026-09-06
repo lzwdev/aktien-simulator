@@ -9,7 +9,11 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+// Ersetze die aktuelle CORS-Zeile mit:
+app.use(cors({
+  origin: ['https://aktien-x.netlify.app', 'http://localhost:5173'],
+  credentials: true
+}));
 app.use(express.json());
 
 // Datenbank initialisieren
